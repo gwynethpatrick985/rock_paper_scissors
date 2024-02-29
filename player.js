@@ -12,3 +12,6 @@ function playerConstructor(name, token = 'bot', wins = 0){
 
 // }
 
+// function takeTurn (){
+
+// };
