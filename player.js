@@ -3,3 +3,12 @@ function playerConstructor(name, token = 'bot', wins = 0){
     token,
     wins;
 };
+
+// function saveWinsToStorage(){
+
+// };
+
+// function retrieveWinsFromStorage(){
+
+// }
+
