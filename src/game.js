@@ -11,16 +11,31 @@ class game{
        console.log(move1, 'game scope');
        let move2 = this.player2.randomMove(moveSet);
        console.log(move2, 'game scope');
-       this.determineWinner(move1,move2)
+       let winner = this.determineWinner(move1,move2)
+       console.log(winner, 'winner')
     };
     determineWinner(move1, move2){
-        if (!this.checkDraw(move1,move2)){
-            console.log('not a draw')
+        if (!this.isDraw(move1,move2)){
+            if(move1 === 'paper'){
+                if (move2 === 'rock'){
+                    return move1 
+                };             
+            } else if(move1 === 'scissors') {
+                if (move2 === 'paper'){
+                    return move1
+                };
+            } else {
+                if (move2 === 'scissors'){
+                    return move1
+                };
+            }
+            return move2
+  
         } else {
-            console.log('is a draw')
-        }
+            return 'is draw'
+        };
     };
-    checkDraw(move1, move2){
+    isDraw(move1, move2){
         if(move1 === move2){
             return true
         } else {
