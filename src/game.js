@@ -1,18 +1,16 @@
 class game{
     constructor(player1 = new player('cpu_0'), player2 = new player ('cpu_1')){
         this.player1 = player1,
-        this.player2 = player2
-        this.classicMoves = ['rock','paper','scissors']
-
+        this.player2 = player2,
+        this.classicMoves = ['rock','paper','scissors'],
+        console.log(this.player1, 'game scope')
     };
     newCPURound(moveSet){
-        // if ((this.player1.includes('cpu'))&&(this.player2.includes('cpu'))){
-
-        // }
+        console.log(this.player1, 'new cpu round')
        let move1 = this.player1.randomMove(moveSet)
-       console.log(move1)
+       console.log(move1, 'game scope')
        let move2 = this.player2.randomMove(moveSet)
-       console.log(move2)
+       console.log(move2, 'game scope')
     }
 
 }

@@ -7,7 +7,8 @@ class player{
 randomMove(moveSet){
     let randInt =  Math.floor(Math.random() * moveSet.length);
     let move = moveSet[randInt];
-    this.takeTurn(move);
+    console.log(move, 'player scope')
+    return this.takeTurn(move);
 
 };
 takeTurn(move){
