@@ -11,9 +11,10 @@ class game{
        console.log(move1, 'game scope');
        let move2 = this.player2.randomMove(moveSet);
        console.log(move2, 'game scope');
+       this.determineWinner(move1,move2)
     };
     determineWinner(move1, move2){
-        if (!checkDraw(move1,move2)){
+        if (!this.checkDraw(move1,move2)){
             console.log('not a draw')
         } else {
             console.log('is a draw')
