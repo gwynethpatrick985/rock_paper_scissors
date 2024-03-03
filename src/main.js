@@ -2,9 +2,7 @@ let playerButton = document.querySelector('.player-game');
 let cpuButton = document.querySelector('.cpu-game');
 let resultsElement = document.querySelector('results');
 let playerOptions = document.querySelector('.player-choice-field')
-let rockButton = document.querySelector('.rock-button');
-let paperButton = document.querySelector('.paper-button');
-let scissorsButton = document.querySelector('.scissors-button');
+
 
 playerOptions.addEventListener('click', function(event){
     let element = event.target;
