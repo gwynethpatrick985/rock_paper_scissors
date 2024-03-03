@@ -1,16 +1,20 @@
-var playerButton = document.querySelector('.player-game')
+let playerButton = document.querySelector('.player-game')
 console.log(playerButton)
 let cpuButton = document.querySelector('.cpu-game')
+let resultsHTML = document.querySelector('results')
 playerButton.addEventListener('click', function(event){
     playerGame();
 });
 cpuButton.addEventListener('click', function(event){
-    CPUGame();
+    let result = CPUGame();
+    resultsHTML.innerText = result
+
+
 });
 function CPUGame(moveSet = 'classicMoves'){
     let CPUGame = new game()
-    let result = CPUGame.newCPURound(CPUGame[moveSet])
-    console.log(result)
+    return CPUGame.newCPURound(CPUGame[moveSet])
+    
 };
 
 function playerGame (moveSet = 'classicMoves', playerMove = 'paper'){
