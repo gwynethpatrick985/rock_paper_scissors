@@ -11,10 +11,10 @@ class game{
        let move2 = this.player2.randomMove(moveSet);
        let winner = this.determineWinner(move1,move2)
        if (winner === move1){
-            this.player1.wins += 1
+            this.player1.wins ++
             result = "Player 1 Wins!"
        } else if (winner === move2){
-            this.player2.winner += 1
+            this.player2.wins ++
             result =  "Player 2 Wins!"
        } else {
             result = "Draw!"
@@ -22,16 +22,26 @@ class game{
        return result;
     };
     newPlayerRound(moveSet, playerMove){
+        
+        let result = ''
         let move1 = this.player1.takeTurn(playerMove);
-        let move2 = this.player2.takeTurn.randomMove(moveSet);
+        let move2 = this.player2.randomMove(moveSet);
         let winner = this.determineWinner(move1, move2);
+        
         if (winner === move1){
-            this.player1.wins += 1
+            this.player1.wins ++
+          
+            result = "Player 1 Wins!"
+ 
+            this.player1.saveWinsToStorage()
         } else if (winner === move2){
-            this.player2.winner += 1
+            this.player1.loses ++
+            result =  "Player 2 Wins!"
         } else {
-            return "Draw!"
+            result = "Draw!"
         };
+    
+        return result;
     };
     determineWinner(move1, move2){
         if (!this.isDraw(move1,move2)){

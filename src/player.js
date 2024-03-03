@@ -1,8 +1,9 @@
 class player{
-    constructor (name, token = 'bot', wins = 0){
-    this.name,
-    this.token,
-    this.wins;
+    constructor (name, token = 'bot', wins = 0, loses = 0){
+    this.name = name,
+    this.token = token,
+    this.wins = wins,
+    this.loses = loses;
 }
 randomMove(moveSet){
     let randInt =  Math.floor(Math.random() * moveSet.length);
@@ -13,13 +14,12 @@ randomMove(moveSet){
 takeTurn(move){
     return move
 }
+saveWinsToStorage(){
+    let toStoreWins = this.wins 
+    localStorage.setItem('savedWins', toStoreWins)
 };
 
-// function saveWinsToStorage(){
-
-// };
-
-// function retrieveWinsFromStorage(){
-
-// }
-
+};
+function retrieveWinsFromStorage(){
+    return localStorage.getItem('savedWins')
+};
