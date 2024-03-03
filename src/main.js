@@ -1,10 +1,11 @@
 
+//Global Variables.
 let playerButton = document.querySelector('.player-game');
 let cpuButton = document.querySelector('.cpu-game');
 let resultsElement = document.querySelector('results');
 let playerOptions = document.querySelector('.player-choice-field')
 
-
+//Event Listeners
 playerOptions.addEventListener('click', function(event){
     let element = event.target;
     let result = ''
@@ -17,14 +18,16 @@ playerOptions.addEventListener('click', function(event){
     };
     resultsElement.innerText = result
 });
-// playerButton.addEventListener('click', function(event){
-
-// });
+playerButton.addEventListener('click', function(event){
+    showElement(playerOptions)
+});
 
 cpuButton.addEventListener('click', function(event){
     let result = CPUGame();
     resultsElement.innerText = result
 });
+
+//Functions
 function CPUGame(moveSet = 'classicMoves'){
     let CPUGame = new game()
     return CPUGame.newCPURound(CPUGame[moveSet])
@@ -47,4 +50,11 @@ function loadUser(){
          return user
     };
 
-}
+};
+
+function showElement(element){
+    element.classList.remove('-hidden');
+};
+function hideElement(element){
+    element.classList.add('-hidden')
+};
