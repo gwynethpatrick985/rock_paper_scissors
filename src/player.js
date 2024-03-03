@@ -1,8 +1,9 @@
 class player{
-    constructor (name, token = 'bot', wins = 0){
+    constructor (name, token = 'bot', wins = 0, loses = 0){
     this.name = name,
     this.token = token,
-    this.wins = wins;
+    this.wins = wins,
+    this.loses = loses;
 }
 randomMove(moveSet){
     let randInt =  Math.floor(Math.random() * moveSet.length);
