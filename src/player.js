@@ -21,7 +21,7 @@ saveWinsToStorage(){
 
 };
 function retrieveWinsFromStorage(){
-    return localStorage.getItem(wins)
+    return localStorage.getItem('wins')
 };
 // function saveWinsToStorage(){
 
