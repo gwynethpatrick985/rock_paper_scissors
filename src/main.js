@@ -1,27 +1,30 @@
 let playerButton = document.querySelector('.player-game');
 let cpuButton = document.querySelector('.cpu-game');
-let resultsHTML = document.querySelector('results');
+let resultsElement = document.querySelector('results');
 let playerOptions = document.querySelector('.player-choice-field')
 let rockButton = document.querySelector('.rock-button');
 let paperButton = document.querySelector('.paper-button');
 let scissorsButton = document.querySelector('.scissors-button');
 
-playerOptions.addEventListener('click', function(){
-    
-    var element = event.target;
-    console.log(element);
+playerOptions.addEventListener('click', function(event){
+    let element = event.target;
+    let result = ''
     if (element.classList.contains('rock-button')){
-        playerGame('classicMoves', 'rock')
-    }
-})
-playerButton.addEventListener('click', function(event){
-    // let result = playerGame();
-    // resultsHTML.innerText = result
+        result = playerGame('classicMoves', 'rock');
+    } else if (element.classList.contains('paper-button')){
+        result = playerGame('classicMoves', 'paper');
+    } else {
+        result = playerGame('classicMoves', 'scissors');
+    };
+    resultsElement.innerText = result
 });
+// playerButton.addEventListener('click', function(event){
+
+// });
 
 cpuButton.addEventListener('click', function(event){
     let result = CPUGame();
-    resultsHTML.innerText = result
+    resultsElement.innerText = result
 });
 function CPUGame(moveSet = 'classicMoves'){
     let CPUGame = new game()
@@ -31,5 +34,5 @@ function CPUGame(moveSet = 'classicMoves'){
 
 function playerGame (moveSet = 'classicMoves', playerMove = 'paper'){
     let playerGame = new game();
-    playerGame.newPlayerRound(playerGame[moveSet], playerMove);
+    return playerGame.newPlayerRound(playerGame[moveSet], playerMove);
 };
