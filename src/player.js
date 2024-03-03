@@ -22,11 +22,3 @@ saveWinsToStorage(){
 function retrieveWinsFromStorage(){
     return localStorage.getItem('savedWins')
 };
-// function saveWinsToStorage(){
-
-// };
-
-// function retrieveWinsFromStorage(){
-
-// }
-
