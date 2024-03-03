@@ -43,8 +43,8 @@ function loadUser(){
         let user = new player('Human','none',localWins);
         return user
     } catch {
-        let user = new player('Human','none');
-        return user
+         let user = new player('Human','none');
+         return user
     };
 
 }

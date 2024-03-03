@@ -15,7 +15,6 @@ takeTurn(move){
 }
 saveWinsToStorage(){
     let toStoreWins = this.wins 
-    console.log(toStoreWins)
     localStorage.setItem('savedWins', toStoreWins)
 };
 
