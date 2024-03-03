@@ -1,3 +1,4 @@
+
 let playerButton = document.querySelector('.player-game');
 let cpuButton = document.querySelector('.cpu-game');
 let resultsElement = document.querySelector('results');
@@ -31,6 +32,19 @@ function CPUGame(moveSet = 'classicMoves'){
 };
 
 function playerGame (moveSet = 'classicMoves', playerMove = 'paper'){
-    let playerGame = new game();
+    let user = loadUser()
+    let playerGame = new game(user);
     return playerGame.newPlayerRound(playerGame[moveSet], playerMove);
 };
+
+function loadUser(){
+    try{
+        let localWins = retrieveWinsFromStorage();
+        let user = new player('Human','none',localWins);
+        return user
+    } catch {
+        let user = new player('Human','none');
+        return user
+    };
+
+}
