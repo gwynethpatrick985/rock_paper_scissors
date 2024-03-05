@@ -4,11 +4,9 @@ class game{
         this.player2 = player2,
         this.classicMoves = ['rock','paper','scissors'];
         this.enhancedMoves = ['ghost', 'lawsuit', 'cursed_dagger', 'stuffed_bear', 'positive_outlook']
-      
     };
 
-    newPlayerRound(moveSet, playerMove){
-        
+    newPlayerRound(moveSet, playerMove){    
         let result = ''
         let move1 = this.player1.takeTurn(playerMove);
         let move2 = this.player2.randomMove(moveSet);
@@ -16,10 +14,8 @@ class game{
         let winner = this.determineWinner(move1, move2, moveSet);
         (winner)
         if (winner === move1){
-            this.player1.wins ++
-          
+            this.player1.wins ++        
             result = "Player 1 Wins!"
- 
             this.player1.saveWinsToStorage()
         } else if (winner === move2){
             this.player1.losses ++
@@ -27,13 +23,11 @@ class game{
             this.player1.saveWinsToStorage()
         } else {
             result = "Draw!"
-        };
-    
+        };   
         return result;
     };
-    determineWinner(move1, move2, moveSet){
-        
-        
+    
+    determineWinner(move1, move2, moveSet){        
         if (!this.isDraw(move1,move2)){
             if (moveSet === this.classicMoves){
                 if(move1 === 'paper'){
