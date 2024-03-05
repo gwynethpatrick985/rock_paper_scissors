@@ -1,36 +1,35 @@
 
 //Global Variables.
-let playerButton = document.querySelector('.classic-mode');
+let classicButton = document.querySelector('.classic-mode');
 let enhancedButton = document.querySelector('.enhanced-edition');
 let resultsElement = document.querySelector('.results');
 let options = document.querySelector('.options')
 let classicOptions = document.querySelector('.classic-choice-field');
 let playerAsideScore = document.querySelector('.player-stats')
 let cpuAsideScore = document.querySelector('.cpu-score')
+let gameBoardElement = document.querySelector('.choices')
 const globalTimer = {
     setup(){
         this.timeout = setTimeout(() => {
             menuReset()
+        
         }, 5000);
     },
     clear(){
         clearTimeout(this.timeout)
     }
 }
-const gameBoard = {
-    playerMove : '',
-    cpuMove : '',
-};
+const gameBoard = []
 
 //Graphics variables
-let ghostImg = '<img alt="ghost" src = "./assets/bear.png">';
-let bearImg = '<img alt="bear" src = "./assets/bear.png">';
-let officeImg = '<img alt="office" src = "./assets/job.png">';
-let happyImg = '<img alt="positive-attitude" src = "./assets/positive attitude.png">';
-let poisonImg = '<img alt="poison-dagger" src = "./assets/curse dagger.png">';
-let scissorImg = '<img alt="scissors" src = "./assets/scissor">';
-let rockImg = '<img alt="rock" src = "./assets/curse rock.png">';
-let paperImg = '<img alt="paper" src = "./assets/curse paper.png">';
+const ghostImg = '<img alt="ghost" src = "./assets/bear.png">';
+const bearImg = '<img alt="bear" src = "./assets/bear.png">';
+const officeImg = '<img alt="office" src = "./assets/job.png">';
+const happyImg = '<img alt="positive-attitude" src = "./assets/positive attitude.png">';
+const poisonImg = '<img alt="poison-dagger" src = "./assets/curse dagger.png">';
+const scissorImg = '<img alt="scissors" src = "./assets/scissor.png">';
+const rockImg = '<img alt="rock" src = "./assets/rock.png">';
+const paperImg = '<img alt="paper" src = "./assets/paper.png">';
 
 //Event Listeners
 document.addEventListener('DOMContentLoaded', function(){
@@ -40,12 +39,13 @@ document.addEventListener('DOMContentLoaded', function(){
     renderScore()
 
 });
-playerButton.addEventListener('click', function(){
+classicButton.addEventListener('click', function(){
     classicGame()
 });
 options.addEventListener('click', function(event){
     let element =event.target;
     if (element.classList.contains('classic-rematch')){
+        hideElement(gameBoardElement)
         globalTimer.clear();
         classicGame();
     } else if (element.classList.contains('change-mode')){
@@ -58,20 +58,39 @@ classicOptions.addEventListener('click', function(event){
     let result = ''
     hideElement(classicOptions)
     if (element.classList.contains('rock-button')){
+        gameBoard[0]= 'rock'
         result = playerGame('classicMoves', 'rock');
     } else if (element.classList.contains('paper-button')){
+        gameBoard[0]= 'paper'
         result = playerGame('classicMoves', 'paper');
     } else {
+        gameBoard[0]= 'scissors'
         result = playerGame('classicMoves', 'scissors');
     };
     classicResultsScreen(result)
 });
-
+function renderBoard(){
+    let toRender = ''
+    gameBoard.forEach(element => {
+        toRender+=' '
+        if (element.includes('rock')){
+            toRender+=rockImg
+        } else if (element.includes('paper')){
+            toRender+=paperImg
+        } else {
+            toRender+=scissorImg
+        };
+    });
+    gameBoardElement.innerHTML = toRender
+}
 function classicResultsScreen(result){
+    showElement(gameBoardElement)
     showElement(resultsElement)
     showElement(options.children[1])
     resultsElement.innerText = result
     renderScore()
+    renderBoard()
+    globalTimer.setup()
 }
 
 function renderScore(){
@@ -83,12 +102,13 @@ function renderScore(){
 
 }
 function classicGame(){
-    globalTimer.setup()
+    
     showElement(options.children[0])
     showElement(classicOptions);
-    hideElement(playerButton);
+    hideElement(classicButton);
     hideElement(enhancedButton);
-    hideElement(resultsElement) 
+    hideElement(resultsElement);
+   
 }
 
 // cpuButton.addEventListener('click', function(event){
@@ -124,19 +144,22 @@ function loadUser(){
         }
 };
 
-function menuReset(){
-    showElement(playerButton)
-    showElement(enhancedButton)
-    hideElement(classicOptions)
-    hideElement(resultsElement)
-    hideElement(options.children[0])
-    hideElement(options.children[1])
-    hideElement(options.children[2])
-};
-
 function showElement(element){
     element.classList.remove('-hidden');
 };
 function hideElement(element){
     element.classList.add('-hidden')
 };
+
+function menuReset(){
+    
+    showElement(classicButton)
+    showElement(enhancedButton)
+    hideElement(classicOptions)
+    hideElement(resultsElement)
+    hideElement(options.children[0])
+    hideElement(options.children[1])
+    hideElement(options.children[2])
+    hideElement(gameBoardElement)
+};
+
