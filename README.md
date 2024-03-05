@@ -20,7 +20,7 @@ the assets (other than the font) were created by the owner of this repository.
 <h3>Wins+Challenges</h3>
 
 - I feel very proud of the visual design of the website, not only just the original sprite-work but also the fact that it looks
-looks very clean even with the limited CSS knowledge I had at the point of writing this, I feel like the brevity with which
+looks very clean even with the limited CSS knowledge I had at the point of writing this. I feel like the brevity with which
 this was achieved and how easy it is to change key features with variables are things I can take pride in.
 - One challenge I faced was initially having some disorganization in my function calls that I let get a bit out of hand before
   fixing. But I later solved this by reorganizing certain lines that reoccured into more convenient locations, and implementing a game board array
