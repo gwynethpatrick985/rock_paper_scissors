@@ -3,7 +3,17 @@
 let playerButton = document.querySelector('.player-game');
 let cpuButton = document.querySelector('.cpu-game');
 let resultsElement = document.querySelector('results');
-let playerOptions = document.querySelector('.player-choice-field')
+let playerOptions = document.querySelector('.classic-choice-field')
+
+//Graphics variables
+let ghostImg = '<img alt="ghost" src = "./assets/bear.png">';
+let bearImg = '<img alt="bear" src = "./assets/bear.png">';
+let officeImg = '<img alt="office" src = "./assets/job.png">';
+let happyImg = '<img alt="positive-attitude" src = "./assets/positive attitude.png">';
+let poisonImg = '<img alt="poison-dagger" src = "./assets/curse dagger.png">';
+let scissorImg = '<img alt="scissors" src = "./assets/scissor">';
+let rockImg = '<img alt="rock" src = "./assets/curse rock.png">';
+let paperImg = '<img alt="paper" src = "./assets/curse paper.png">';
 
 //Event Listeners
 playerOptions.addEventListener('click', function(event){
