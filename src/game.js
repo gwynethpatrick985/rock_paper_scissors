@@ -26,6 +26,7 @@ class game{
         let result = ''
         let move1 = this.player1.takeTurn(playerMove);
         let move2 = this.player2.randomMove(moveSet);
+        gameBoard[1] = move2
         let winner = this.determineWinner(move1, move2);
         
         if (winner === move1){
