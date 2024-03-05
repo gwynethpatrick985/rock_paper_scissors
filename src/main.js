@@ -20,8 +20,6 @@ const globalTimer = {
         clearTimeout(this.timeout)
     }
 };
-const gameBoard = [];
-
 //Graphics variables
 const ghostImg = '<img alt="ghost" src = "./assets/ghost.png">';
 const bearImg = '<img alt="bear" src = "./assets/bear.png">';
@@ -71,13 +69,10 @@ classicOptions.addEventListener('click', function(event){
     let result = '';
     hideElement(classicOptions);
     if (element.classList.contains('rock-button')){
-        gameBoard[0]= 'rock'
         result = playerGame('classicMoves', 'rock');
     } else if (element.classList.contains('paper-button')){
-        gameBoard[0]= 'paper'
         result = playerGame('classicMoves', 'paper');
     } else {
-        gameBoard[0]= 'scissors'
         result = playerGame('classicMoves', 'scissors');
     };
     classicResultsScreen(result);
@@ -89,19 +84,14 @@ enhancedOptions.addEventListener('click', function(event){
     let moveSet = 'enhancedMoves'
     hideElement(enhancedOptions);
     if (element.classList.contains('ghost-button')){
-        gameBoard[0]= 'ghost'
         result = playerGame(moveSet,'ghost')
     } else if (element.classList.contains('lawsuit-button')){
-        gameBoard[0] = 'lawsuit'
         result = playerGame(moveSet, 'lawsuit')
     } else if (element.classList.contains('cursed-button')){
-        gameBoard[0] = 'cursed_dagger'
         result = playerGame(moveSet, 'cursed_dagger')
     } else if (element.classList.contains('positive-button')){
-        gameBoard[0] = 'positive_outlook'
         result = playerGame(moveSet, 'positive_outlook')
     } else {
-        gameBoard[0] = 'stuffed_bear'
         result = playerGame(moveSet, 'stuffed_bear')
     };
     enhancedrResultsScreen(result);
