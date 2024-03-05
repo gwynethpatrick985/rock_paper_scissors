@@ -38,6 +38,11 @@ h1{
     max-height: 10ch;
 }
 
+.-game-mode:hover,li:hover, form > img:hover{
+    filter: invert();
+
+}
+
 .game-board{
     width: auto;
     align-self: center;
