@@ -1,14 +1,14 @@
 
 //Global Variables.
-let classicButton = document.querySelector('.classic-mode');
-let enhancedButton = document.querySelector('.enhanced-edition');
-let resultsElement = document.querySelector('.results');
-let options = document.querySelector('.options')
-let classicOptions = document.querySelector('.classic-choice-field');
+const classicButton = document.querySelector('.classic-mode');
+const enhancedButton = document.querySelector('.enhanced-edition');
+const resultsElement = document.querySelector('.results');
+const options = document.querySelector('.options')
+const classicOptions = document.querySelector('.classic-choice-field');
 const enhancedOptions = document.querySelector('.difficult-choice-field')
-let playerAsideScore = document.querySelector('.player-stats')
-let cpuAsideScore = document.querySelector('.cpu-score')
-let gameBoardElement = document.querySelector('.choices')
+const playerAsideScore = document.querySelector('.player-stats')
+const cpuAsideScore = document.querySelector('.cpu-score')
+const gameBoardElement = document.querySelector('.choices')
 const globalTimer = {
     setup(){
         this.timeout = setTimeout(() => {
@@ -23,11 +23,11 @@ const globalTimer = {
 const gameBoard = []
 
 //Graphics variables
-const ghostImg = '<img alt="ghost" src = "./assets/bear.png">';
+const ghostImg = '<img alt="ghost" src = "./assets/ghost.png">';
 const bearImg = '<img alt="bear" src = "./assets/bear.png">';
-const officeImg = '<img alt="office" src = "./assets/job.png">';
-const happyImg = '<img alt="positive-attitude" src = "./assets/positive attitude.png">';
-const poisonImg = '<img alt="poison-dagger" src = "./assets/curse dagger.png">';
+const lawsuitImg = '<img alt="lawsuit" src = "./assets/lawsuit.png">';
+const positiveImg = '<img alt="positive-attitude" src = "./assets/positive attitude.png">';
+const cursedImg = '<img alt="poison-dagger" src = "./assets/curse dagger.png">';
 const scissorImg = '<img alt="scissors" src = "./assets/scissor.png">';
 const rockImg = '<img alt="rock" src = "./assets/rock.png">';
 const paperImg = '<img alt="paper" src = "./assets/paper.png">';
@@ -78,19 +78,20 @@ enhancedOptions.addEventListener('click', function(event){
     if (element.classList.contains('ghost-button')){
         gameBoard[0]= 'ghost'
         result = playerGame(moveSet,'ghost')
-    } else if (element.classList.contains('lawsuit')){
-        gameBoard[0] = 'lawisuit'
+    } else if (element.classList.contains('lawsuit-button')){
+        gameBoard[0] = 'lawsuit'
         result = playerGame(moveSet, 'lawsuit')
     } else if (element.classList.contains('cursed-button')){
         gameBoard[0] = 'cursed_dagger'
         result = playerGame(moveSet, 'cursed_dagger')
-    } else if (element.classList.contains('positive-outlook')){
+    } else if (element.classList.contains('positive-button')){
         gameBoard[0] = 'positive_outlook'
         result = playerGame(moveSet, 'positive_outlook')
     } else {
         gameBoard[0] = 'stuffed_bear'
         result = playerGame(moveSet, 'stuffed_bear')
     }
+    enhancedrResultsScreen(result)
 
 });
 function renderBoard(){
@@ -101,21 +102,40 @@ function renderBoard(){
             toRender+=rockImg
         } else if (element.includes('paper')){
             toRender+=paperImg
-        } else {
+        } else if (element.includes('scissor')){
             toRender+=scissorImg
-        };
+        } else if (element.includes('ghost')){
+            toRender+=ghostImg
+        } else if(element.includes('lawsuit')) {
+            toRender+=lawsuitImg
+        } else if(element.includes('cursed_dagger')) {
+            toRender+=cursedImg
+        } else if(element.includes('stuffed_bear')) {
+            toRender+=bearImg
+        } else {
+            toRender+=positiveImg
+        }
     });
     gameBoardElement.innerHTML = toRender
 }
 function classicResultsScreen(result){
-    showElement(gameBoardElement)
-    showElement(resultsElement)
-    showElement(options.children[1])
-    resultsElement.innerText = result
-    renderScore()
-    renderBoard()
-    globalTimer.setup()
+    showElement(gameBoardElement);
+    showElement(resultsElement);
+    showElement(options.children[1]);
+    resultsElement.innerText = result;
+    renderScore();
+    renderBoard();
+    globalTimer.setup();
 }
+function enhancedrResultsScreen(result){
+    showElement(gameBoardElement);
+    showElement(resultsElement);
+    showElement(options.children[2]);
+    resultsElement.innerText = result;
+    renderScore();
+    renderBoard();
+    globalTimer.setup();
+};
 
 function renderScore(){
     user = loadUser();
@@ -156,7 +176,7 @@ function loadUser(){
             let user = new player('Human','none');
             return user
         } else {
-            let user = new player('Human','none',localWins,localLosses);
+            let user = new player('Human','☻',localWins,localLosses);
             user.saveWinsToStorage()
             return user
         }
@@ -183,19 +203,3 @@ function menuReset(){
 };
 
 
-
-
-
-// cpuButton.addEventListener('click', function(event){
-//     let result = CPUGame();
-//     resultsElement.innerText = result
-//     showElement(resultsElement)
-//     setTimeout(() =>{menuReset()}, 8000)
-// });
-
-//Functions
-// function CPUGame(moveSet = 'classicMoves'){
-//     let CPUGame = new game()
-//     return CPUGame.newCPURound(CPUGame[moveSet])
-    
-// };
