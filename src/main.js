@@ -65,6 +65,7 @@ function classicResultsScreen(result){
     showElement(options.children[0])
     showElement(options.children[2])
     resultsElement.innerText = result
+    renderScore()
 }
 
 function renderScore(){
