@@ -55,6 +55,11 @@ options.addEventListener('click', function(event){
     } else if (element.classList.contains('reset-score')){
         localStorage.clear()
         renderScore()
+    } else if(element.classList.contains('enhanced-rematch')) {
+        hideElement(gameBoardElement)
+        globalTimer.clear()
+        enhancedGame()
+
     }
 });
 classicOptions.addEventListener('click', function(event){
