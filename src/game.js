@@ -10,8 +10,8 @@ class game{
         let result = ''
         gameBoard[0] = this.player1.takeTurn(playerMove);
         gameBoard[1] = this.player2.randomMove(moveSet);
-        let winner = this.determineWinner(gameBoard[0], gameBoard[1], moveSet);
-        (winner)
+        let winner = this.determineWinner(moveSet);
+
         if (winner === gameBoard[0]){
             this.player1.wins ++        
             result = "Player Wins!"
