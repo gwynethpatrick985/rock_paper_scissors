@@ -14,7 +14,7 @@ class game{
         let move2 = this.player2.randomMove(moveSet);
         gameBoard[1] = move2
         let winner = this.determineWinner(move1, move2, moveSet);
-        console.log(winner)
+        (winner)
         if (winner === move1){
             this.player1.wins ++
           
@@ -32,8 +32,8 @@ class game{
         return result;
     };
     determineWinner(move1, move2, moveSet){
-        console.log(move2)
-        console.log(moveSet)
+        
+        
         if (!this.isDraw(move1,move2)){
             if (moveSet === this.classicMoves){
                 if(move1 === 'paper'){
@@ -52,8 +52,8 @@ class game{
                 return move2; 
         }
             else if (move1 === 'ghost'){
-                console.log('ghost')
-                console.log(move2)
+        
+                
                 if (move2 === 'stuffed_bear' || move2 === 'lawsuit'){
                     return move1
                 };
@@ -88,23 +88,3 @@ class game{
     }
 
 }
-
-
-
-
-    // newCPURound(moveSet){
-    //    let result = ''
-    //    let move1 = this.player1.randomMove(moveSet);
-    //    let move2 = this.player2.randomMove(moveSet);
-    //    let winner = this.determineWinner(move1,move2)
-    //    if (winner === move1){
-    //         this.player1.wins ++
-    //         result = "Player 1 Wins!"
-    //    } else if (winner === move2){
-    //         this.player2.wins ++
-    //         result =  "Player 2 Wins!"
-    //    } else {
-    //         result = "Draw!"
-    //    };
-    //    return result;
-    // };
