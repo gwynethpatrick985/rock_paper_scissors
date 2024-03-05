@@ -26,6 +26,7 @@ this was achieved and how easy it is to change key features with variables are t
   fixing. But I later solved this by reorganizing certain lines that reoccured into more convenient locations, and implementing a game board array
   to track the board state to simplify the event handlers associated with choosing moves, and the methods in the game class that use those choices.
 <h3>Possible future extensions:</h3>
+
 - A random move button in the options.
 - A less bland backdrop.
 - The Ability to enter names for each player.
