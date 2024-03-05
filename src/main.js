@@ -218,9 +218,3 @@ function loadUser(){
             return user
         }
 };
-
-
-
-
-
-

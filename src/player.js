@@ -30,4 +30,3 @@ function retrieveWinsFromStorage(){
 function retrieveLossesFromStorage(){
     return localStorage.getItem('savedLosses');
 };
-
