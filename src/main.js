@@ -70,6 +70,29 @@ classicOptions.addEventListener('click', function(event){
     };
     classicResultsScreen(result)
 });
+enhancedOptions.addEventListener('click', function(event){
+    let element = event.target;
+    let result = '';
+    let moveSet = 'enhancedMoves'
+    hideElement(enhancedOptions);
+    if (element.classList.contains('ghost-button')){
+        gameBoard[0]= 'ghost'
+        result = playerGame(moveSet,'ghost')
+    } else if (element.classList.contains('lawsuit')){
+        gameBoard[0] = 'lawisuit'
+        result = playerGame(moveSet, 'lawsuit')
+    } else if (element.classList.contains('cursed-button')){
+        gameBoard[0] = 'cursed_dagger'
+        result = playerGame(moveSet, 'cursed_dagger')
+    } else if (element.classList.contains('positive-outlook')){
+        gameBoard[0] = 'positive_outlook'
+        result = playerGame(moveSet, 'positive_outlook')
+    } else {
+        gameBoard[0] = 'stuffed_bear'
+        result = playerGame(moveSet, 'stuffed_bear')
+    }
+
+});
 function renderBoard(){
     let toRender = ''
     gameBoard.forEach(element => {
