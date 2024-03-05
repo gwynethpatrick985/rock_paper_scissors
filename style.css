@@ -1,62 +1,76 @@
 /*css variables*/
 :root{
-    --color-background: rgb(92, 68, 76);
-    --color-gradient: gradient(180deg, rgb(225, 199, 207) 0%, rgb(159, 124, 136) 100%);
+    --color-background: rgb(249, 246, 244);
+    --color-gradient: linear-gradient(180deg, rgb(6, 0, 2) 0%, rgb(159, 124, 136) 100%);
     --universal-font: 'pixel';
     --font-color: rgb(33, 33, 33);
     --box-color: rgb(28, 28, 28) ;
     --highlight-color: rgb(219, 54, 109);
-    
-    
+    --image-size: 15ch;
 }
+
 @font-face {
     font-family: 'pixel';
     src: url(./assets/OldEnglishGothicPixelRegular-ow2Bo.ttf) format(truetype);  
 }
+
 html{
 height: 100%;
 background: var(--color-background);
-background: var(--color-gradient);
+
 color: var(--font-color);
 }
+
 body{
+    margin-top: 10ch;
     display: flex;
     flex-direction: row;
     justify-content: center;
     font-family:'pixel';
 }
+
 h1{
     font-size: xx-large;
-    max-width: 30ch;
     color: var(--highlight-color);
-    
 }
+
+aside{
+    text-align: center;
+    font-size: x-large;
+    padding: 1ch;
+    border-style:groove;
+    border-width: 2px;
+    border-image: linear-gradient(to bottom, var(--highlight-color) 0%, rgba(0,0,0,0)100%)1;
+}
+.player-stats, .cpu-score{
+    padding-left: 1ch;
+    padding-right: 1ch;
+}
+
 .choices img, form > img{
     height: auto;
     width: auto;
-    max-width: 10ch;
-    max-height: 10ch;
+    max-width: var(--image-size);
+    max-height: var(--image-size);
+}
+
+.difficult-choice-field{
+    display: flex;
+    flex-wrap: wrap; 
 }
 
 .game-board{
-    width: auto;
+    width: 50ch;
     align-self: center;
-    text-align: center;
-    
+    text-align: center;  
 }
-.-sidebar{
-    font-size: x-large;
- 
-}
+
 .-choice-field{
     display: flex;
     justify-content: space-evenly;
 }
 .-hidden{
     display: none;
-}
-.game-select{
-    width: auto;
 }
 
 .-game-mode{
@@ -70,10 +84,14 @@ h1{
     margin-right: 20%;
     color: rgb(224, 224, 224);
 }
-.-game-mode:hover{
-    background-color:grey;
+
+.-game-mode:hover,li:hover, form > img:hover{
+    filter: invert();
 }
+
 ul{
+    margin-top: 1ch;
+    margin-right: 4ch;
     display: flex;
     justify-content: space-between;
     list-style: none;

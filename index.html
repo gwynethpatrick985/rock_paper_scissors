@@ -3,24 +3,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="style.css" />
 <html>
-    <title>R,P,C,G,O,PD,SB,PA!</title>
+    <title>Rock, Paper... huh?!</title>
    
     <body>
-        <aside class = "player-sidebar -sidebar">
-            Player
+        <aside class = "player-sidebar">
+            ☺<br>
+            Player    
             <div class = "player-stats">Score: 0</div>
         </aside>
         <section class="game-board">
             <h1> Rock, Paper, Scissors, Ghost, Lawsuit, Cursed Dagger, Stuffed Bear, Positive Outlook</h1>
             <form class="game-select"></form>
                 <div class="classic-mode -game-mode"> 
-                    Player Game<br>
+                    classic game:<br>
                     paper > rock<br>
                     rock > scissors<br>
                     scissors > paper<br>
                 </div>
                 <div class="enhanced-edition -game-mode"> 
-                    Enhanced Edition<br>
+                    enhanced edition:<br>
                     lawsuit > positive outlook, cursed dagger <br>
                     cursed dagger > ghost, stuffed bear<br>
                     stuffed bear > lawsuit, positive outlook <br>
@@ -35,10 +36,10 @@
             </form>
             <form class= "difficult-choice-field -choice-field -hidden">
                 <img class="ghost-button" alt="ghost" src = "./assets/ghost.png">
-                <img class="poison-button" alt="poison-dagger" src = "./assets/curse dagger.png">
+                <img class="cursed-button" alt="cursed-dagger" src = "./assets/curse dagger.png">
                 <img class="bear-button" alt="bear" src = "./assets/bear.png">
-                <img class="happy-button" alt="positive-attitude" src = "./assets/positive attitude.png">
-                <img class="office-button" alt="office" src = "./assets/job.png">
+                <img class="positive-button" alt="positive-outlook" src = "./assets/positive attitude.png">
+                <img class="lawsuit-button" alt="lawsuit" src = "./assets/lawsuit.png">
             </form>
             <div class="choices -hidden"></div>
             <h2 class="results -hidden"> results </h3>
@@ -47,10 +48,12 @@
                     <li class= "change-mode -hidden">Change Game Mode?</li>
                     <li class="classic-rematch -hidden">New Round?</li>
                     <li class="enhanced-rematch -hidden"> New Round?</li>
+                    <li class="reset-score">Reset Score?</li>
                 </ul>
             </footer>
         </section>
-        <aside class = "computer-sidebar -sidebar">
+        <aside class = "computer-sidebar">
+            ☻<br>
             Computer
             <div class = "cpu-score">Score: 0</div>
         </aside>
