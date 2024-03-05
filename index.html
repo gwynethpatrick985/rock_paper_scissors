@@ -1,17 +1,61 @@
 <!DOCTYPE html>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style.css" />
 <html>
+    <title>R,P,C,G,O,PD,SB,PA!</title>
+   
     <body>
-    <button class="player-game"> player game </button>
-    <button class="cpu-game"> cpu game </button>
-    <section class= "player-choice-field -hidden">
-        <button class="rock-button">rock</button>
-        <button class="paper-button">paper</button>
-        <button class="scissors-button">scissors</button>
-    </section>
-    <results> results </results>
-    
+        <aside class = "player-sidebar -sidebar">
+            Player
+            <div class = "player-stats">Score: 0</div>
+        </aside>
+        <section class="game-board">
+            <h1> Rock, Paper, Scissors, Ghost, Lawsuit, Cursed Dagger, Stuffed Bear, Positive Outlook</h1>
+            <form class="game-select"></form>
+                <div class="classic-mode -game-mode"> 
+                    Player Game<br>
+                    paper > rock<br>
+                    rock > scissors<br>
+                    scissors > paper<br>
+                </div>
+                <div class="enhanced-edition -game-mode"> 
+                    Enhanced Edition<br>
+                    lawsuit > positive outlook, cursed dagger <br>
+                    cursed dagger > ghost, stuffed bear<br>
+                    stuffed bear > lawsuit, positive outlook <br>
+                    positive outlook > ghost, cursed dagger <br>
+                    ghost > stuffed bear, lawsuit <br>
+                 </div>
+            </form>
+            <form class= "classic-choice-field -choice-field -hidden">
+                <img class="rock-button" alt="rock" src = "./assets/rock.png">
+                <img class="paper-button" alt="paper" src = "./assets/paper.png">
+                <img class="scissors-button" alt="scissors" src = "./assets/scissor.png">
+            </form>
+            <form class= "difficult-choice-field -choice-field -hidden">
+                <img class="ghost-button" alt="ghost" src = "./assets/ghost.png">
+                <img class="poison-button" alt="poison-dagger" src = "./assets/curse dagger.png">
+                <img class="bear-button" alt="bear" src = "./assets/bear.png">
+                <img class="happy-button" alt="positive-attitude" src = "./assets/positive attitude.png">
+                <img class="office-button" alt="office" src = "./assets/job.png">
+            </form>
+            <div class="choices -hidden"></div>
+            <h2 class="results -hidden"> results </h3>
+            <footer>
+                <ul class="options"> 
+                    <li class= "change-mode -hidden">Change Game Mode?</li>
+                    <li class="classic-rematch -hidden">New Round?</li>
+                    <li class="enhanced-rematch -hidden"> New Round?</li>
+                </ul>
+            </footer>
+        </section>
+        <aside class = "computer-sidebar -sidebar">
+            Computer
+            <div class = "cpu-score">Score: 0</div>
+        </aside>
+    </body>
     <script src = "./src/main.js"></script>
     <script src = "./src/player.js"></script>
     <script src = "./src/game.js"></script>
-    </body>
 </html>

@@ -5,27 +5,28 @@ class game{
         this.classicMoves = ['rock','paper','scissors'];
       
     };
-    newCPURound(moveSet){
-       let result = ''
-       let move1 = this.player1.randomMove(moveSet);
-       let move2 = this.player2.randomMove(moveSet);
-       let winner = this.determineWinner(move1,move2)
-       if (winner === move1){
-            this.player1.wins ++
-            result = "Player 1 Wins!"
-       } else if (winner === move2){
-            this.player2.wins ++
-            result =  "Player 2 Wins!"
-       } else {
-            result = "Draw!"
-       };
-       return result;
-    };
+    // newCPURound(moveSet){
+    //    let result = ''
+    //    let move1 = this.player1.randomMove(moveSet);
+    //    let move2 = this.player2.randomMove(moveSet);
+    //    let winner = this.determineWinner(move1,move2)
+    //    if (winner === move1){
+    //         this.player1.wins ++
+    //         result = "Player 1 Wins!"
+    //    } else if (winner === move2){
+    //         this.player2.wins ++
+    //         result =  "Player 2 Wins!"
+    //    } else {
+    //         result = "Draw!"
+    //    };
+    //    return result;
+    // };
     newPlayerRound(moveSet, playerMove){
         
         let result = ''
         let move1 = this.player1.takeTurn(playerMove);
         let move2 = this.player2.randomMove(moveSet);
+        gameBoard[1] = move2
         let winner = this.determineWinner(move1, move2);
         
         if (winner === move1){
@@ -35,8 +36,9 @@ class game{
  
             this.player1.saveWinsToStorage()
         } else if (winner === move2){
-            this.player1.loses ++
+            this.player1.losses ++
             result =  "Player 2 Wins!"
+            this.player1.saveWinsToStorage()
         } else {
             result = "Draw!"
         };
