@@ -17,6 +17,10 @@ const globalTimer = {
         clearTimeout(this.timeout)
     }
 }
+const gameBoard = {
+    playerMove : '',
+    cpuMove : '',
+};
 
 //Graphics variables
 let ghostImg = '<img alt="ghost" src = "./assets/bear.png">';
@@ -42,8 +46,11 @@ playerButton.addEventListener('click', function(){
 options.addEventListener('click', function(event){
     let element =event.target;
     if (element.classList.contains('classic-rematch')){
-        globalTimer.clear()
+        globalTimer.clear();
         classicGame();
+    } else if (element.classList.contains('change-mode')){
+        globalTimer.clear();
+        menuReset();
     };
 });
 classicOptions.addEventListener('click', function(event){
@@ -62,8 +69,7 @@ classicOptions.addEventListener('click', function(event){
 
 function classicResultsScreen(result){
     showElement(resultsElement)
-    showElement(options.children[0])
-    showElement(options.children[2])
+    showElement(options.children[1])
     resultsElement.innerText = result
     renderScore()
 }
@@ -78,6 +84,7 @@ function renderScore(){
 }
 function classicGame(){
     globalTimer.setup()
+    showElement(options.children[0])
     showElement(classicOptions);
     hideElement(playerButton);
     hideElement(enhancedButton);
