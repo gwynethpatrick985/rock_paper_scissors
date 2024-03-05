@@ -6,8 +6,10 @@
     <title>R,P,C,G,O,PD,SB,PA!</title>
    
     <body>
-        <aside class = "player-sidebar">Player</aside>
-
+        <aside class = "player-sidebar -sidebar">
+            Player
+            <div class = "player-stats">Score: 0</div>
+        </aside>
         <section class="game-board">
             <h1> Rock, Paper, Scissors, Ghost, Lawsuit, Cursed Dagger, Stuffed Bear, Positive Outlook</h1>
             <form class="game-select"></form>
@@ -39,12 +41,18 @@
                 <img class="office-button" alt="office" src = "./assets/job.png">
         </form>
         <h2 class="results -hidden"> results </h3>
-        <ul class=""> 
-            <li> New Round?</li>
-            <li>Change Game Mode?</li>
-        </ul>
+        <footer>
+            <ul class="options"> 
+                <li class="classic-rematch -hidden">New Round?</li>
+                <li class="enhanced-rematch -hidden"> New Round?</li>
+                <li class= "change-mode -hidden">Change Game Mode?</li>
+            </ul>
+         </footer>
         </section>
-        <aside class = "computer-sidebar">Computer</aside>
+        <aside class = "computer-sidebar -sidebar">
+            Computer
+            <div class = "cpu-score">Score: 0</div>
+        </aside>
     </body>
     <script src = "./src/main.js"></script>
     <script src = "./src/player.js"></script>
