@@ -3,7 +3,8 @@
 let playerButton = document.querySelector('.classic-mode');
 let cpuButton = document.querySelector('.enhanced-edition');
 let resultsElement = document.querySelector('.results');
-let playerOptions = document.querySelector('.classic-choice-field')
+let options = document.querySelector('.options')
+let classicOptions = document.querySelector('.classic-choice-field');
 
 //Graphics variables
 let ghostImg = '<img alt="ghost" src = "./assets/bear.png">';
@@ -16,10 +17,19 @@ let rockImg = '<img alt="rock" src = "./assets/curse rock.png">';
 let paperImg = '<img alt="paper" src = "./assets/curse paper.png">';
 
 //Event Listeners
-playerOptions.addEventListener('click', function(event){
+playerButton.addEventListener('click', function(){
+    classicGame()
+});
+options.addEventListener('click', function(event){
+    let element =event.target;
+    if (element.classList.contains('classic-rematch')){
+        classicGame();
+    };
+});
+classicOptions.addEventListener('click', function(event){
     let element = event.target;
     let result = ''
-    hideElement(playerOptions)
+    hideElement(classicOptions)
     if (element.classList.contains('rock-button')){
         result = playerGame('classicMoves', 'rock');
     } else if (element.classList.contains('paper-button')){
@@ -27,18 +37,24 @@ playerOptions.addEventListener('click', function(event){
     } else {
         result = playerGame('classicMoves', 'scissors');
     };
-    showElement(resultsElement)
-    resultsElement.innerText = result
-    setTimeout(() =>{menuReset()}, 8000)
-});
-playerButton.addEventListener('click', function(){
-    classicGame()
+    classicResultsScreen(result)
 });
 
+function classicResultsScreen(result){
+    showElement(resultsElement)
+    showElement(options.children[0])
+    showElement(options.children[2])
+    resultsElement.innerText = result
+    setTimeout(() =>{menuReset()}, 8000)
+
+}
+
+
 function classicGame(){
-    showElement(playerOptions);
+    showElement(classicOptions);
     hideElement(playerButton);
-    hideElement(cpuButton); 
+    hideElement(cpuButton);
+    hideElement(resultsElement) 
 }
 
 // cpuButton.addEventListener('click', function(event){
@@ -76,7 +92,7 @@ function loadUser(){
 function menuReset(){
     showElement(playerButton)
     showElement(cpuButton)
-    hideElement(playerOptions)
+    hideElement(classicOptions)
     hideElement(resultsElement)
 };
 
