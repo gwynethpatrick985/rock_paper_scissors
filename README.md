@@ -29,5 +29,5 @@ this was achieved and how easy it is to change key features with variables are t
 
 - A random move button in the options.
 - A less bland backdrop.
-- The Ability to enter names for each player.
+- The ability to enter names for each player.
 - Two player mode.
