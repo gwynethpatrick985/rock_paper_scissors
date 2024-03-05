@@ -14,7 +14,7 @@ const globalTimer = {
         this.timeout = setTimeout(() => {
             menuReset()
         
-        }, 5000);
+        }, 10000);
     },
     clear(){
         clearTimeout(this.timeout)
