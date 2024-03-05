@@ -1,0 +1,19 @@
+/*css variables*/
+:root{
+    --color-background: gradient rgb(92, 68, 76);
+    --universal-font: 'pixel';
+}
+@font-face {
+    font-family: 'pixel';
+    src: url(./assets/OldEnglishGothicPixelRegular-gx1jp.otf) format(opentype);  
+}
+html{
+height: auto;
+background-color: var(--color-background);
+font-family:'pixel';
+
+}
+
+.-hidden{
+    display: none;
+}
