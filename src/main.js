@@ -5,7 +5,7 @@ let enhancedButton = document.querySelector('.enhanced-edition');
 let resultsElement = document.querySelector('.results');
 let options = document.querySelector('.options')
 let classicOptions = document.querySelector('.classic-choice-field');
-const enhancedOptions = document.querySelector('.ifficult-choice-field')
+const enhancedOptions = document.querySelector('.difficult-choice-field')
 let playerAsideScore = document.querySelector('.player-stats')
 let cpuAsideScore = document.querySelector('.cpu-score')
 let gameBoardElement = document.querySelector('.choices')
@@ -40,6 +40,9 @@ document.addEventListener('DOMContentLoaded', function(){
 classicButton.addEventListener('click', function(){
     classicGame()
 });
+enhancedButton.addEventListener('click', function(){
+    enhancedGame()
+})
 options.addEventListener('click', function(event){
     let element =event.target;
     if (element.classList.contains('classic-rematch')){
@@ -109,25 +112,12 @@ function classicGame(){
    
 }
 function enhancedGame(){
-    showElement(options.children[1])
+    showElement(options.children[0])
     showElement(enhancedOptions)
     hideElement(classicButton)
     hideElement(resultsElement)
+    hideElement(enhancedButton)
 };
-
-// cpuButton.addEventListener('click', function(event){
-//     let result = CPUGame();
-//     resultsElement.innerText = result
-//     showElement(resultsElement)
-//     setTimeout(() =>{menuReset()}, 8000)
-// });
-
-//Functions
-// function CPUGame(moveSet = 'classicMoves'){
-//     let CPUGame = new game()
-//     return CPUGame.newCPURound(CPUGame[moveSet])
-    
-// };
 
 function playerGame (moveSet = 'classicMoves', playerMove = 'paper'){
     let user = loadUser()
@@ -166,5 +156,23 @@ function menuReset(){
     hideElement(options.children[1])
     hideElement(options.children[2])
     hideElement(gameBoardElement)
+    hideElement(enhancedOptions)
 };
 
+
+
+
+
+// cpuButton.addEventListener('click', function(event){
+//     let result = CPUGame();
+//     resultsElement.innerText = result
+//     showElement(resultsElement)
+//     setTimeout(() =>{menuReset()}, 8000)
+// });
+
+//Functions
+// function CPUGame(moveSet = 'classicMoves'){
+//     let CPUGame = new game()
+//     return CPUGame.newCPURound(CPUGame[moveSet])
+    
+// };
