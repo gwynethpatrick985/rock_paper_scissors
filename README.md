@@ -1,4 +1,4 @@
-<h1> Rock Paper Scissor Project </h1>
+<h1> Rock Paper Scissors Project </h1>
 <h3>Abstract:</h3> 
 This is the front-end for a website for the game rock, paper, scissors. Additionally it plays a custom version with
 original sprite work and 5 options: ghost, lawsuit, cursed dagger, stuffed bear, positive outlook. The score saves to and loads
