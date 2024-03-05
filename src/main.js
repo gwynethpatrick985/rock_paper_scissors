@@ -5,6 +5,7 @@ let enhancedButton = document.querySelector('.enhanced-edition');
 let resultsElement = document.querySelector('.results');
 let options = document.querySelector('.options')
 let classicOptions = document.querySelector('.classic-choice-field');
+const enhancedOptions = document.querySelector('.ifficult-choice-field')
 let playerAsideScore = document.querySelector('.player-stats')
 let cpuAsideScore = document.querySelector('.cpu-score')
 let gameBoardElement = document.querySelector('.choices')
@@ -33,9 +34,6 @@ const paperImg = '<img alt="paper" src = "./assets/paper.png">';
 
 //Event Listeners
 document.addEventListener('DOMContentLoaded', function(){
-    let user=loadUser()
-    console.log(user.wins)
-    user.saveWinsToStorage()
     renderScore()
 
 });
@@ -110,6 +108,12 @@ function classicGame(){
     hideElement(resultsElement);
    
 }
+function enhancedGame(){
+    showElement(options.children[1])
+    showElement(enhancedOptions)
+    hideElement(classicButton)
+    hideElement(resultsElement)
+};
 
 // cpuButton.addEventListener('click', function(event){
 //     let result = CPUGame();
@@ -140,6 +144,7 @@ function loadUser(){
             return user
         } else {
             let user = new player('Human','none',localWins,localLosses);
+            user.saveWinsToStorage()
             return user
         }
 };
