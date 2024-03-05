@@ -35,8 +35,9 @@ class game{
  
             this.player1.saveWinsToStorage()
         } else if (winner === move2){
-            this.player1.loses ++
+            this.player1.losses ++
             result =  "Player 2 Wins!"
+            this.player1.saveWinsToStorage()
         } else {
             result = "Draw!"
         };

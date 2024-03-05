@@ -7,6 +7,16 @@ let options = document.querySelector('.options')
 let classicOptions = document.querySelector('.classic-choice-field');
 let playerAsideScore = document.querySelector('.player-stats')
 let cpuAsideScore = document.querySelector('.cpu-score')
+const globalTimer = {
+    setup(){
+        this.timeout = setTimeout(() => {
+            menuReset()
+        }, 5000);
+    },
+    clear(){
+        clearTimeout(this.timeout)
+    }
+}
 
 //Graphics variables
 let ghostImg = '<img alt="ghost" src = "./assets/bear.png">';
@@ -20,7 +30,7 @@ let paperImg = '<img alt="paper" src = "./assets/curse paper.png">';
 
 //Event Listeners
 document.addEventListener('DOMContentLoaded', function(){
-    user=loadUser()
+    let user=loadUser()
     console.log(user.wins)
     user.saveWinsToStorage()
     renderScore()
@@ -32,6 +42,7 @@ playerButton.addEventListener('click', function(){
 options.addEventListener('click', function(event){
     let element =event.target;
     if (element.classList.contains('classic-rematch')){
+        globalTimer.clear()
         classicGame();
     };
 });
@@ -54,8 +65,6 @@ function classicResultsScreen(result){
     showElement(options.children[0])
     showElement(options.children[2])
     resultsElement.innerText = result
-    setTimeout(() =>{menuReset()}, 8000)
-    renderScore()
 }
 
 function renderScore(){
@@ -67,10 +76,10 @@ function renderScore(){
 
 }
 function classicGame(){
-    
+    globalTimer.setup()
     showElement(classicOptions);
     hideElement(playerButton);
-    hideElement(cpuButton);
+    hideElement(enhancedButton);
     hideElement(resultsElement) 
 }
 
@@ -109,9 +118,12 @@ function loadUser(){
 
 function menuReset(){
     showElement(playerButton)
-    showElement(cpuButton)
+    showElement(enhancedButton)
     hideElement(classicOptions)
     hideElement(resultsElement)
+    hideElement(options.children[0])
+    hideElement(options.children[1])
+    hideElement(options.children[2])
 };
 
 function showElement(element){
