@@ -14,7 +14,7 @@ class game{
         let move2 = this.player2.randomMove(moveSet);
         gameBoard[1] = move2
         let winner = this.determineWinner(move1, move2, moveSet);
-        
+        console.log(winner)
         if (winner === move1){
             this.player1.wins ++
           
@@ -32,6 +32,8 @@ class game{
         return result;
     };
     determineWinner(move1, move2, moveSet){
+        console.log(move2)
+        console.log(moveSet)
         if (!this.isDraw(move1,move2)){
             if (moveSet === this.classicMoves){
                 if(move1 === 'paper'){
@@ -47,12 +49,34 @@ class game{
                         return move1
                     };
                 }
-                return move2;
-            if (moveSet === this.enhancedMoves){
-                
-            }
+                return move2; 
         }
-        }
+            else if (move1 === 'ghost'){
+                console.log('ghost')
+                console.log(move2)
+                if (move2 === 'stuffed_bear' || move2 === 'lawsuit'){
+                    return move1
+                };
+            } else if (move1 === 'lawsuit'){
+                if (move2 === 'stuffed_bear' || move2 === 'lawsuit'){
+                    return move1
+                };
+            } else if (move1 === 'cursed_dagger'){
+                if (move2 === 'ghost' || move2 === 'stuffed_bear'){
+                    return move1
+                };
+            } else if (move1 === 'stuffed_bear'){
+                if (move2 === 'lawsuit' || move2 === 'positive_outlook'){
+                    return move1
+                };    
+            } else {
+                if (move2 === 'ghost' || move2 === 'cursed_dagger'){
+                    return move1
+                };
+            };
+            return move2
+        
+        };
     };
     
     isDraw(move1, move2){
