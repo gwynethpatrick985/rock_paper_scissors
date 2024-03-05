@@ -1,8 +1,8 @@
 
 //Global Variables.
-let playerButton = document.querySelector('.player-game');
-let cpuButton = document.querySelector('.cpu-game');
-let resultsElement = document.querySelector('results');
+let playerButton = document.querySelector('.classic-mode');
+let cpuButton = document.querySelector('.enhanced-edition');
+let resultsElement = document.querySelector('.results');
 let playerOptions = document.querySelector('.classic-choice-field')
 
 //Graphics variables
@@ -31,25 +31,29 @@ playerOptions.addEventListener('click', function(event){
     resultsElement.innerText = result
     setTimeout(() =>{menuReset()}, 8000)
 });
-playerButton.addEventListener('click', function(event){
+playerButton.addEventListener('click', function(){
+    classicGame()
+});
+
+function classicGame(){
     showElement(playerOptions);
     hideElement(playerButton);
-    hideElement(cpuButton);
-});
+    hideElement(cpuButton); 
+}
 
-cpuButton.addEventListener('click', function(event){
-    let result = CPUGame();
-    resultsElement.innerText = result
-    showElement(resultsElement)
-    setTimeout(() =>{menuReset()}, 8000)
-});
+// cpuButton.addEventListener('click', function(event){
+//     let result = CPUGame();
+//     resultsElement.innerText = result
+//     showElement(resultsElement)
+//     setTimeout(() =>{menuReset()}, 8000)
+// });
 
 //Functions
-function CPUGame(moveSet = 'classicMoves'){
-    let CPUGame = new game()
-    return CPUGame.newCPURound(CPUGame[moveSet])
+// function CPUGame(moveSet = 'classicMoves'){
+//     let CPUGame = new game()
+//     return CPUGame.newCPURound(CPUGame[moveSet])
     
-};
+// };
 
 function playerGame (moveSet = 'classicMoves', playerMove = 'paper'){
     let user = loadUser()
