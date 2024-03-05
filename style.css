@@ -31,12 +31,13 @@ h1{
     color: var(--highlight-color);
     
 }
-form > img{
+.choices img, form > img{
     height: auto;
     width: auto;
     max-width: 10ch;
     max-height: 10ch;
 }
+
 .game-board{
     width: auto;
     align-self: center;
@@ -44,9 +45,8 @@ form > img{
     
 }
 .-sidebar{
-    align-self: center;
-    min-width: 20ch;
-    width: 40%;
+    font-size: x-large;
+ 
 }
 .-choice-field{
     display: flex;
