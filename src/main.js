@@ -1,7 +1,7 @@
 
 //Global Variables.
 let playerButton = document.querySelector('.classic-mode');
-let cpuButton = document.querySelector('.enhanced-edition');
+let enhancedButton = document.querySelector('.enhanced-edition');
 let resultsElement = document.querySelector('.results');
 let options = document.querySelector('.options')
 let classicOptions = document.querySelector('.classic-choice-field');
@@ -19,6 +19,13 @@ let rockImg = '<img alt="rock" src = "./assets/curse rock.png">';
 let paperImg = '<img alt="paper" src = "./assets/curse paper.png">';
 
 //Event Listeners
+document.addEventListener('DOMContentLoaded', function(){
+    user=loadUser()
+    console.log(user.wins)
+    user.saveWinsToStorage()
+    renderScore()
+
+});
 playerButton.addEventListener('click', function(){
     classicGame()
 });
@@ -54,11 +61,13 @@ function classicResultsScreen(result){
 function renderScore(){
     user = loadUser();
     playerAsideScore.innerText = 'Score:'+user.wins;
+    cpuAsideScore.innerHTML = 'Score:'+user.losses;
 
 
 
 }
 function classicGame(){
+    
     showElement(classicOptions);
     hideElement(playerButton);
     hideElement(cpuButton);
@@ -86,15 +95,16 @@ function playerGame (moveSet = 'classicMoves', playerMove = 'paper'){
 };
 
 function loadUser(){
-    try{
+    
         let localWins = retrieveWinsFromStorage();
-        let user = new player('Human','none',localWins);
-        return user
-    } catch {
-         let user = new player('Human','none');
-         return user
-    };
-
+        let localLosses = retrieveLossesFromStorage();
+        if (localWins === null || localLosses === null){
+            let user = new player('Human','none');
+            return user
+        } else {
+            let user = new player('Human','none',localWins,localLosses);
+            return user
+        }
 };
 
 function menuReset(){
