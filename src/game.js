@@ -8,18 +8,17 @@ class game{
 
     newPlayerRound(moveSet, playerMove){    
         let result = ''
-        let move1 = this.player1.takeTurn(playerMove);
-        let move2 = this.player2.randomMove(moveSet);
-        gameBoard[1] = move2
-        let winner = this.determineWinner(move1, move2, moveSet);
+        gameBoard[0] = this.player1.takeTurn(playerMove);
+        gameBoard[1] = this.player2.randomMove(moveSet);
+        let winner = this.determineWinner(gameBoard[0], gameBoard[1], moveSet);
         (winner)
-        if (winner === move1){
+        if (winner === gameBoard[0]){
             this.player1.wins ++        
-            result = "Player 1 Wins!"
+            result = "Player Wins!"
             this.player1.saveWinsToStorage()
-        } else if (winner === move2){
+        } else if (winner === gameBoard[1]){
             this.player1.losses ++
-            result =  "Player 2 Wins!"
+            result =  "Computer Wins!"
             this.player1.saveWinsToStorage()
         } else {
             result = "Draw!"
@@ -27,54 +26,52 @@ class game{
         return result;
     };
     
-    determineWinner(move1, move2, moveSet){        
-        if (!this.isDraw(move1,move2)){
+    determineWinner(moveSet){        
+        if (!this.isDraw(gameBoard[0],gameBoard[1])){
             if (moveSet === this.classicMoves){
-                if(move1 === 'paper'){
-                    if (move2 === 'rock'){
-                        return move1 
+                if(gameBoard[0] === 'paper'){
+                    if (gameBoard[1] === 'rock'){
+                        return gameBoard[0] 
                     };             
-                } else if(move1 === 'scissors') {
-                    if (move2 === 'paper'){
-                        return move1
+                } else if(gameBoard[0] === 'scissors') {
+                    if (gameBoard[1] === 'paper'){
+                        return gameBoard[0]
                     };
                 } else {
-                    if (move2 === 'scissors'){
-                        return move1
+                    if (gameBoard[1] === 'scissors'){
+                        return gameBoard[0]
                     };
                 }
-                return move2; 
+                return gameBoard[1]; 
         }
-            else if (move1 === 'ghost'){
-        
-                
-                if (move2 === 'stuffed_bear' || move2 === 'lawsuit'){
-                    return move1
+            else if (gameBoard[0] === 'ghost'){
+                if (gameBoard[1] === 'stuffed_bear' || gameBoard[1] === 'lawsuit'){
+                    return gameBoard[0]
                 };
-            } else if (move1 === 'lawsuit'){
-                if (move2 === 'stuffed_bear' || move2 === 'lawsuit'){
-                    return move1
+            } else if (gameBoard[0] === 'lawsuit'){
+                if (gameBoard[1] === 'stuffed_bear' || gameBoard[1] === 'lawsuit'){
+                    return gameBoard[0]
                 };
-            } else if (move1 === 'cursed_dagger'){
-                if (move2 === 'ghost' || move2 === 'stuffed_bear'){
-                    return move1
+            } else if (gameBoard[0] === 'cursed_dagger'){
+                if (gameBoard[1] === 'ghost' || gameBoard[1] === 'stuffed_bear'){
+                    return gameBoard[0]
                 };
-            } else if (move1 === 'stuffed_bear'){
-                if (move2 === 'lawsuit' || move2 === 'positive_outlook'){
-                    return move1
+            } else if (gameBoard[0] === 'stuffed_bear'){
+                if (gameBoard[1] === 'lawsuit' || gameBoard[1] === 'positive_outlook'){
+                    return gameBoard[0]
                 };    
             } else {
-                if (move2 === 'ghost' || move2 === 'cursed_dagger'){
-                    return move1
+                if (gameBoard[1] === 'ghost' || gameBoard[1] === 'cursed_dagger'){
+                    return gameBoard[0]
                 };
             };
-            return move2
+            return gameBoard[1]
         
         };
     };
     
-    isDraw(move1, move2){
-        if(move1 === move2){
+    isDraw(){
+        if(gameBoard[0] === gameBoard[1]){
             return true
         } else {
             return false
@@ -82,3 +79,4 @@ class game{
     }
 
 }
+const gameBoard = [];
