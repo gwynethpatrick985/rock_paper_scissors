@@ -1,13 +1,25 @@
 <!DOCTYPE html>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style.css" />
 <html>
+    <title>Ghost, Office, Poison Dagger, Stuffed Bear, Positive Attitude</title>
     <body>
     <button class="player-game"> player game </button>
     <button class="cpu-game"> cpu game </button>
-    <section class= "player-choice-field -hidden">
-        <button class="rock-button">rock</button>
-        <button class="paper-button">paper</button>
-        <button class="scissors-button">scissors</button>
-    </section>
+    <form class= "classic-choice-field -hidden">
+        <img class="rock-button" alt="rock" src = "./assets/rock.png">
+        <img class="paper-button" alt="paper" src = "./assets/paper.png">
+        <img class="scissors-button" alt="scissors" src = "./assets/scissor.png">
+    </form>
+    <form class= "difficult-choice-field -hidden">
+        <img class="ghost-button" alt="ghost" src = "./assets/ghost.png">
+        <img class="poison-button" alt="poison-dagger" src = "./assets/curse dagger.png">
+        <img class="bear-button" alt="bear" src = "./assets/bear.png">
+        <img class="happy-button" alt="positive-attitude" src = "./assets/positive attitude.png">
+        <img class="office-button" alt="office" src = "./assets/job.png">
+    </form>
+   
     <results> results </results>
     
     <script src = "./src/main.js"></script>
