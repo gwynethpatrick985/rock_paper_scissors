@@ -49,7 +49,7 @@ class game{
                     return gameBoard[0]
                 };
             } else if (gameBoard[0] === 'lawsuit'){
-                if (gameBoard[1] === 'stuffed_bear' || gameBoard[1] === 'lawsuit'){
+                if (gameBoard[1] === 'positive_outlook' || gameBoard[1] === 'cursed_dagger'){
                     return gameBoard[0]
                 };
             } else if (gameBoard[0] === 'cursed_dagger'){
