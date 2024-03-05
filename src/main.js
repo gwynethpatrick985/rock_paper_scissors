@@ -19,8 +19,8 @@ const globalTimer = {
     clear(){
         clearTimeout(this.timeout)
     }
-}
-const gameBoard = []
+};
+const gameBoard = [];
 
 //Graphics variables
 const ghostImg = '<img alt="ghost" src = "./assets/ghost.png">';
@@ -34,15 +34,18 @@ const paperImg = '<img alt="paper" src = "./assets/paper.png">';
 
 //Event Listeners
 document.addEventListener('DOMContentLoaded', function(){
-    renderScore()
+    renderScore();
 
 });
+
 classicButton.addEventListener('click', function(){
-    classicGame()
+    classicGame();
 });
+
 enhancedButton.addEventListener('click', function(){
-    enhancedGame()
-})
+    enhancedGame();
+});
+
 options.addEventListener('click', function(event){
     let element =event.target;
     if (element.classList.contains('classic-rematch')){
@@ -62,10 +65,11 @@ options.addEventListener('click', function(event){
 
     }
 });
+
 classicOptions.addEventListener('click', function(event){
     let element = event.target;
-    let result = ''
-    hideElement(classicOptions)
+    let result = '';
+    hideElement(classicOptions);
     if (element.classList.contains('rock-button')){
         gameBoard[0]= 'rock'
         result = playerGame('classicMoves', 'rock');
@@ -76,8 +80,9 @@ classicOptions.addEventListener('click', function(event){
         gameBoard[0]= 'scissors'
         result = playerGame('classicMoves', 'scissors');
     };
-    classicResultsScreen(result)
+    classicResultsScreen(result);
 });
+
 enhancedOptions.addEventListener('click', function(event){
     let element = event.target;
     let result = '';
@@ -98,12 +103,13 @@ enhancedOptions.addEventListener('click', function(event){
     } else {
         gameBoard[0] = 'stuffed_bear'
         result = playerGame(moveSet, 'stuffed_bear')
-    }
-    enhancedrResultsScreen(result)
-
+    };
+    enhancedrResultsScreen(result);
 });
+
+//Rendering Functions
 function renderBoard(){
-    let toRender = ''
+    let toRender = '';
     gameBoard.forEach(element => {
         toRender+=' '
         if (element.includes('rock')){
@@ -122,10 +128,26 @@ function renderBoard(){
             toRender+=bearImg
         } else {
             toRender+=positiveImg
-        }
+        };
     });
     gameBoardElement.innerHTML = toRender
-}
+};
+
+function renderScore(){
+    user = loadUser();
+    playerAsideScore.innerText = 'Score:'+user.wins;
+    cpuAsideScore.innerHTML = 'Score:'+user.losses;
+};
+
+//Screen Update Functions.
+function showElement(element){
+    element.classList.remove('-hidden');
+};
+
+function hideElement(element){
+    element.classList.add('-hidden')
+};
+
 function classicResultsScreen(result){
     showElement(gameBoardElement);
     showElement(resultsElement);
@@ -135,6 +157,7 @@ function classicResultsScreen(result){
     renderBoard();
     globalTimer.setup();
 }
+
 function enhancedrResultsScreen(result){
     showElement(gameBoardElement);
     showElement(resultsElement);
@@ -145,32 +168,37 @@ function enhancedrResultsScreen(result){
     globalTimer.setup();
 };
 
-function renderScore(){
-    user = loadUser();
-    playerAsideScore.innerText = 'Score:'+user.wins;
-    cpuAsideScore.innerHTML = 'Score:'+user.losses;
+function menuReset(){
+    showElement(classicButton);
+    showElement(enhancedButton);
+    showElement(options.children[3]);
+    hideElement(classicOptions);
+    hideElement(resultsElement);
+    hideElement(options.children[0]);
+    hideElement(options.children[1]);
+    hideElement(options.children[2]);
+    hideElement(gameBoardElement);
+    hideElement(enhancedOptions);
+};
 
-
-
-}
-function classicGame(){
-    hideElement(options.children[3])
-    showElement(options.children[0])
+function classicGame(){  
+    showElement(options.children[0]);
     showElement(classicOptions);
     hideElement(classicButton);
     hideElement(enhancedButton);
     hideElement(resultsElement);
-   
+    hideElement(options.children[3]);
 }
 function enhancedGame(){
-    hideElement(options.children[3])
-    showElement(options.children[0])
-    showElement(enhancedOptions)
-    hideElement(classicButton)
-    hideElement(resultsElement)
-    hideElement(enhancedButton)
+    showElement(options.children[0]);
+    showElement(enhancedOptions);
+    hideElement(classicButton);
+    hideElement(resultsElement);
+    hideElement(enhancedButton);
+    hideElement(options.children[3]);
 };
 
+//Other functions
 function playerGame (moveSet = 'classicMoves', playerMove = 'paper'){
     let user = loadUser()
     let playerGame = new game(user);
@@ -191,25 +219,8 @@ function loadUser(){
         }
 };
 
-function showElement(element){
-    element.classList.remove('-hidden');
-};
-function hideElement(element){
-    element.classList.add('-hidden')
-};
 
-function menuReset(){
-    
-    showElement(classicButton)
-    showElement(enhancedButton)
-    hideElement(classicOptions)
-    hideElement(resultsElement)
-    showElement(options.children[3])
-    hideElement(options.children[0])
-    hideElement(options.children[1])
-    hideElement(options.children[2])
-    hideElement(gameBoardElement)
-    hideElement(enhancedOptions)
-};
+
+
 
 
