@@ -9,22 +9,40 @@
         <aside class = "player-sidebar">Player</aside>
 
         <section class="game-board">
-            <h1> Rock, Paper, Scissors Ghost, Office, Poison Dagger, Stuffed Bear, Positive Attitude</h1>
-            <button class="player-game"> player game </button>
-            <button class="cpu-game"> cpu game </button>
-            <form class= "classic-choice-field -hidden">
+            <h1> Rock, Paper, Scissors, Ghost, Lawsuit, Cursed Dagger, Stuffed Bear, Positive Outlook</h1>
+            <form class="game-select"></form>
+                <div class="classic-mode -game-mode"> 
+                    Player Game<br>
+                    paper > rock<br>
+                    rock > scissors<br>
+                    scissors > paper<br>
+                </div>
+                <div class="enhanced-edition -game-mode"> 
+                    Enhanced Edition<br>
+                    lawsuit > positive outlook, cursed dagger <br>
+                    cursed dagger > ghost, stuffed bear<br>
+                    stuffed bear > lawsuit, positive outlook <br>
+                    positive outlook > ghost, cursed dagger <br>
+                    ghost > positive outlook, lawsuit <br>
+                 </div>
+            </form>
+            <form class= "classic-choice-field -choice-field -hidden">
                 <img class="rock-button" alt="rock" src = "./assets/rock.png">
                 <img class="paper-button" alt="paper" src = "./assets/paper.png">
                 <img class="scissors-button" alt="scissors" src = "./assets/scissor.png">
             </form>
-            <form class= "difficult-choice-field -hidden">
+            <form class= "difficult-choice-field -choice-field -hidden">
                 <img class="ghost-button" alt="ghost" src = "./assets/ghost.png">
                 <img class="poison-button" alt="poison-dagger" src = "./assets/curse dagger.png">
                 <img class="bear-button" alt="bear" src = "./assets/bear.png">
                 <img class="happy-button" alt="positive-attitude" src = "./assets/positive attitude.png">
                 <img class="office-button" alt="office" src = "./assets/job.png">
         </form>
-        <results> results </results>
+        <results class=" -hidden"> results </results>
+        <ul class=""> 
+            <li> New Round?</li>
+            <li>Change Game Mode?</li>
+        </ul>
         </section>
         <aside class = "computer-sidebar">Computer</aside>
     </body>
