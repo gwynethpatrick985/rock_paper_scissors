@@ -5,6 +5,8 @@ let cpuButton = document.querySelector('.enhanced-edition');
 let resultsElement = document.querySelector('.results');
 let options = document.querySelector('.options')
 let classicOptions = document.querySelector('.classic-choice-field');
+let playerAsideScore = document.querySelector('.player-stats')
+let cpuAsideScore = document.querySelector('.cpu-score')
 
 //Graphics variables
 let ghostImg = '<img alt="ghost" src = "./assets/bear.png">';
@@ -46,10 +48,16 @@ function classicResultsScreen(result){
     showElement(options.children[2])
     resultsElement.innerText = result
     setTimeout(() =>{menuReset()}, 8000)
-
+    renderScore()
 }
 
+function renderScore(){
+    user = loadUser();
+    playerAsideScore.innerText = 'Score:'+user.wins;
 
+
+
+}
 function classicGame(){
     showElement(classicOptions);
     hideElement(playerButton);
