@@ -52,7 +52,10 @@ options.addEventListener('click', function(event){
     } else if (element.classList.contains('change-mode')){
         globalTimer.clear();
         menuReset();
-    };
+    } else if (element.classList.contains('reset-score')){
+        localStorage.clear()
+        renderScore()
+    }
 });
 classicOptions.addEventListener('click', function(event){
     let element = event.target;
@@ -146,7 +149,7 @@ function renderScore(){
 
 }
 function classicGame(){
-    
+    hideElement(options.children[3])
     showElement(options.children[0])
     showElement(classicOptions);
     hideElement(classicButton);
@@ -155,6 +158,7 @@ function classicGame(){
    
 }
 function enhancedGame(){
+    hideElement(options.children[3])
     showElement(options.children[0])
     showElement(enhancedOptions)
     hideElement(classicButton)
@@ -195,6 +199,7 @@ function menuReset(){
     showElement(enhancedButton)
     hideElement(classicOptions)
     hideElement(resultsElement)
+    showElement(options.children[3])
     hideElement(options.children[0])
     hideElement(options.children[1])
     hideElement(options.children[2])
